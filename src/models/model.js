@@ -17,11 +17,11 @@ class DataModel {
     }
 
     put(_id, entry) {
-        categoriesModel.findByIdAndUpdate(_id, entry);
+        this.schema.findByIdAndUpdate(_id, entry);
     }
 
     delete(id) {
-        categoriesModel.findByIdAndDelete(_id);
+        this.schema.findByIdAndDelete(_id);
     }
 }
 module.exports = DataModel;
