@@ -1,18 +1,18 @@
 'use strict';
 
 const rootDir = process.cwd();
-const Players = require(`${rootDir}/src/models/players.js`);
+const Products = require(`${rootDir}/src/models/products.js`);
 
 const supergoose = require('../supergoose.js');
 
 beforeAll(supergoose.startDB);
 afterAll(supergoose.stopDB);
 
-describe('Players Model', () => {
-  it('can post() a new player', () => {
-    let obj = {name:'John', bats:'R',throws:'R',position:'C',team:'Bunnies'};
-    let players = new Players();
-    return players.post(obj)
+describe('Products Model', () => {
+  it('can post() a new product', () => {
+    let obj = {name:'Towel', type: 'Paper', price: '4'};
+    let products = new Products();
+    return products.post(obj)
       .then(record => {
         Object.keys(obj).forEach(key =>{
           expect(record[key]).toEqual(obj[key]);
@@ -20,15 +20,15 @@ describe('Players Model', () => {
       });
   });
 
-  it('can get() a player', () => {
-    let obj = {name:'John', bats:'R',throws:'R',position:'C',team:'Bunnies'};
-    let players = new Players();
-    return players.post(obj)
+  it('can get() a product', () => {
+    let obj = {name:'Towel', type: 'Paper', price: '4'};
+    let products = new Products();
+    return products.post(obj)
       .then(record => {
-        return players.get(record._id)
-          .then(player => {
+        return products.get(record._id)
+          .then(product => {
             Object.keys(obj).forEach(key =>{
-              expect(player[0][key]).toEqual(obj[key]);
+              expect(product[0][key]).toEqual(obj[key]);
             });
           });
       });
