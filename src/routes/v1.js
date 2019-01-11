@@ -13,10 +13,17 @@ router.post('/api/v1/:model', handlePost);
 router.get('/api/v1/:model/:id', handleGetOne);
 router.put('/api/v1/:model/:id', handlePut);
 router.delete('/api/v1/:model/:id', handleDelete);
-// console.log('IM HERE!!!!');
+
 // FUNCTIONS
+
+/**
+ *
+ *
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ */
 function handleGetAll(req,res,next) {
-    // console.log('in get function');
   req.model.get()
     .then( data => {
       const output = {
@@ -28,12 +35,26 @@ function handleGetAll(req,res,next) {
     .catch( next );
 }
 
+/**
+ *
+ *
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ */
 function handleGetOne (req,res,next) {
   req.model.get(req.params.id)
     .then( result => res.status(200).json(result[0]) )
     .catch( next );
 }
 
+/**
+ *
+ *
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ */
 function handlePost (req,res,next) {
     console.log('in handle post');
   req.model.post(req.body)
@@ -42,12 +63,26 @@ function handlePost (req,res,next) {
 }
 
 
+/**
+ *
+ *
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ */
 function handlePut (req,res,next) {
   req.model.put(req.params.id, req.body)
     .then( result => res.status(200).json(result) )
     .catch( next );
 }
 
+/**
+ *
+ *
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ */
 function handleDelete (req,res,next) {
   req.model.delete(req.params.id)
     .then( result => res.status(200).json(result) )
