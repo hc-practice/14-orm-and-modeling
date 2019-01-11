@@ -6,10 +6,11 @@
 ### Author: Heather Cherewaty & Jon DiQuattro (pair programmed)
 
 ### Links and Resources
-
+[![Build Status](https://www.travis-ci.com/hcherewaty/14-orm-and-modeling.svg?branch=master)](https://www.travis-ci.com/hcherewaty/14-orm-and-modeling)
 
 * [repo](https://github.com/hcherewaty/14-orm-and-modeling)
-* [travis](https://www.travis-ci.com/hcherewaty/13-rest-server)
+* [travis](https://www.travis-ci.com/hcherewaty/14-orm-and-modeling)
+* [heroku] (https://hc-dq-api.herokuapp.com/)
 
 
 
