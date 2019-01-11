@@ -1,13 +1,13 @@
 'use strict';
 
 const rootDir = process.cwd();
-const Teams = require(`${rootDir}/src/models/teams.js`);
+const Categories = require(`${rootDir}/src/models/categories.js`);
 
-describe('Teams Model', () => {
-  it('can post() a new team', () => {
-    let obj = {name:'Test Team'};
-    let teams = new Teams();
-    return teams.post(obj)
+describe('Categories Model', () => {
+  it('can post() a new cateogory', () => {
+    let obj = {name:'Towel', type: 'Paper'};
+    let categories = new Categories();
+    return categories.post(obj)
       .then(record => {
         Object.keys(obj).forEach(key =>{
           expect(record[0][key]).toEqual(obj[key]);
@@ -16,15 +16,15 @@ describe('Teams Model', () => {
       .catch(e => console.error('ERR', e) );
   });
 
-  it('can get() a team', () => {
-    let obj = {name:'Test Team'};
-    let teams = new Teams();
-    return teams.post(obj)
+  it('can get() a category', () => {
+    let obj = {name:'Towel', type: 'Paper'};
+    let categories = new Categories();
+    return categories.post(obj)
       .then(record => {
-        return teams.get(record._id)
-          .then(team => {
+        return categories.get(record._id)
+          .then(category => {
             Object.keys(obj).forEach(key =>{
-              expect(team[0][key]).toEqual(obj[key]);
+              expect(category[0][key]).toEqual(obj[key]);
             });
           });
       });
