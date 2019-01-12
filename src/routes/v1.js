@@ -1,5 +1,14 @@
 'use strict';
+////////////////notes///////////////////
+// express sees two paths with the same amount of variables as the same thing, so you need to use a "?", which
+// will make it a query that can be accessed with req,params.query.variable use an ampersand between variables
 
+////////example
+//router.get('api/v1/?model/&lat/&long') //req.params would contain all the 
+//or you could make a seperate router for each thing.
+
+
+///////////////////////////////////////
 const express = require('express');
 const modelFinder = require('../middleware/model-finder.js');
 
@@ -14,6 +23,8 @@ router.get('/api/v1/:model/:id', handleGetOne);
 router.put('/api/v1/:model/:id', handlePut);
 router.delete('/api/v1/:model/:id', handleDelete);
 
+
+router.get('api/v1/:model/:lat/:long') //req.params would contain all the 
 // FUNCTIONS
 
 /**
@@ -23,6 +34,8 @@ router.delete('/api/v1/:model/:id', handleDelete);
  * @param {*} res
  * @param {*} next
  */
+
+ //watch 0954 video
 function handleGetAll(req,res,next) {
   req.model.get()
     .then( data => {

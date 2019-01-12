@@ -8,7 +8,7 @@ const supergoose = require('../supergoose.js');
 beforeAll(supergoose.startDB);
 afterAll(supergoose.stopDB);
 
-describe('Products Model', () => {
+xdescribe('Products Model', () => {
   it('can post() a new product', () => {
     let obj = {name:'Towel', type: 'Paper', price: '4'};
     let products = new Products();
